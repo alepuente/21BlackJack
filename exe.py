@@ -9,6 +9,7 @@ def clear():
 loses = 0
 wins = 0
 ties = 0
+
 def Game():   
     clear()
     global wins 

@@ -3,7 +3,6 @@ import random as r
 class Deck():
     cardsValues = ["2","3","4","5","6","7","8","9","10","J","Q","K","A"]
     cardsSuits = ['♠','♥','♦','♣']
-    cards = None
     def __init__(self):#Create deck with suits and values
         self.cards = []
         for cardSuit in self.cardsSuits:
@@ -17,8 +16,7 @@ class Deck():
 
 
 class Card():
-    value = None
-    suit = None
+    
     def __init__(self, cardValue, cardSuit):
         self.value = cardValue
         self.suit = cardSuit
@@ -28,12 +26,8 @@ class Card():
 
 
 class Hand():
-    isDealer = None
-    cards = []
-    acesCount = None
-    handValue = None
     def __init__(self,isDealer):
-        self.isDealer = isDealer
+        self.isDealer = isDealer        
         self.cards = []
         self.acesCount = 0
         self.handValue = 0
