@@ -52,6 +52,13 @@ class Hand():
                 self.handValue += 1
         else:
             self.handValue += 10
+        if(self.acesCount > 0 and not self.isDealer):#Automaticly sets the Ace value if the sum is less than 21
+            for ace in range(self.acesCount):                
+                if((self.handValue+11)<=21):
+                    self.handValue+=11
+                else:
+                    self.handValue+=1
+        self.acesCount = 0
 
     def showCards(self):
         cardsString = ''
@@ -59,18 +66,6 @@ class Hand():
             cardsString += '\n'+card.showCard()
         return cardsString
 
-
-    #Checks how many ace cards the player got and lets the player choose the value
-    def checkAces(self):
-        if(self.acesCount > 0):
-            for ace in range(self.acesCount):
-                choice = input('Choose the value for your Ace (Enter 1 or 11): \n')
-                if(choice == '1'):
-                    self.handValue +=1
-                else:
-                    self.handValue +=11
-        self.acesCount = 0
-        return True
         
     
         
