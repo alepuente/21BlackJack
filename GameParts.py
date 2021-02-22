@@ -29,21 +29,25 @@ class Hand():
     def __init__(self,isDealer):
         self.isDealer = isDealer        
         self.cards = []
-        self.acesCount = 0
         self.handValue = 0
 
     def hit(self,deck):#Get a card from the top of the deck and adds it to the hand value
-        self.cards.append(deck.takeCard())
-        card = self.cards[-1]
-        if(card.value.isnumeric()):
-            self.handValue += int(card.value)
-        elif(card.value == "A"):
-            if((self.handValue+11) <= 21):
-                self.handValue += 11
+        self.cards.append(deck.takeCard())      
+        self.handValue = 0  
+        acesCount = 0
+        for card in self.cards:
+            if(card.value.isnumeric()):
+                self.handValue += int(card.value)
+            elif(card.value == "A"):
+                acesCount+=1          
             else:
+                self.handValue += 10
+        for i in range(0, acesCount):
+            if((self.handValue + 11) > 21):
                 self.handValue += 1
-        else:
-            self.handValue += 10
+            else:
+                self.handValue += 11
+
 
     def showCards(self):
         cardsString = ''
