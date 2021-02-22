@@ -38,21 +38,12 @@ class Hand():
         if(card.value.isnumeric()):
             self.handValue += int(card.value)
         elif(card.value == "A"):
-            if(not self.isDealer):
-                self.acesCount += 1
-            elif((self.handValue+11) <= 21):
+            if((self.handValue+11) <= 21):
                 self.handValue += 11
             else:
                 self.handValue += 1
         else:
             self.handValue += 10
-        if(self.acesCount > 0 and not self.isDealer):#Automaticly sets the Ace value if the sum is less than 21
-            for ace in range(self.acesCount):                
-                if((self.handValue+11)<=21):
-                    self.handValue+=11
-                else:
-                    self.handValue+=1
-        self.acesCount = 0
 
     def showCards(self):
         cardsString = ''
