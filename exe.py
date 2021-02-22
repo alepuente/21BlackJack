@@ -12,9 +12,10 @@ ties = 0
 
 def Game():   
     clear()
-    global wins 
     global loses
     global ties
+    global wins
+
     #Game variables
     gameState = 1
     deck = gp.Deck()
@@ -75,13 +76,12 @@ def Game():
         print("Your score({}) is higher than dealers({}) you win".format(player1.handValue,dealer.handValue))
         wins += 1
 
-game = 1
-
-while(game):
-    Game()
-    print('-----------Score----------------\nWins:{}\nLoses:{}\nTies:{}\n'.format(wins,loses,ties))
-    game = int(input("Want to play again??? 0:No 1:Yes \n"))
-    clear()
+if __name__ == '__main__':
+    game = 1
+    while(game):
+        Game()
+        print('-----------Score----------------\nWins:{}\nLoses:{}\nTies:{}\n'.format(wins,loses,ties))
+        game = int(input("Want to play again??? 0:No 1:Yes \n"))
 
 
     
