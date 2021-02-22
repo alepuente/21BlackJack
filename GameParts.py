@@ -35,14 +35,14 @@ class Hand():
         self.cards.append(deck.takeCard())      
         self.handValue = 0  
         acesCount = 0
-        for card in self.cards:
+        for card in self.cards:#Get hand value without aces
             if(card.value.isnumeric()):
                 self.handValue += int(card.value)
             elif(card.value == "A"):
                 acesCount+=1          
             else:
                 self.handValue += 10
-        for i in range(0, acesCount):
+        for i in range(0, acesCount):#For each ace check the best value for it
             if((self.handValue + 11) > 21):
                 self.handValue += 1
             else:
